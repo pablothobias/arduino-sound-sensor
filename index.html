@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>DSO II ARDUINO</title>
+  <meta charset="utf-8">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+  <canvas id="myChart" width="10" height="10"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script>
+    let contador = 0;
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: "Sound",
+            data: []
+          }]
+        }
+      })
+  </script>
+  <script>
+    const socket = io();
+    socket.on('dadosArduino', function (data) {
+      myChart.data.labels.push(contador++);
+      myChart.data.datasets[0].data.push(data.valor);
+      contador ++;
+      myChart.update();
+    })
+  </script>
+</body>
+
+</html>

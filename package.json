@@ -1,0 +1,16 @@
+{
+  "name": "microphone_dso2",
+  "version": "1.0.0",
+  "description": "dso 2 project with arduino",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serialport": "^8.0.5",
+    "socket.io": "^2.3.0"
+  }
+}
